@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Carter+One&family=Montserrat:wght@100&family=Ubuntu:wght@300&display=swap');
+body{
+  font-family: "roboto condensed sans-serif";
+  background: #fff;
+  
+   
+}
+:root{
+  --primary-white: #fff;
+  /* --primary-orange: #f9ab00; */
+}
+
+ /**************NAVBAR************/
+ .nav-btn{
+   
+   font-weight: 500;
+   cursor: pointer;
+   letter-spacing: 0.0375rem;
+   padding-left: 500px;
+ }
+ .navbar-nav > li > a {
+   color: var(--primary-white)  !important;
+ }
+ .navbar-brand{
+   font-family: Arial, Helvetica, sans-serif;
+   font-size: 4.375rem;
+   font-style: italic;
+   font-weight: 100;
+   text-decoration: none;
+   color:  rgb(0,0,255);
+   max-width: 17.25rem;
+   padding: 0 !important;
+   border: 0;
+   animation: animate 6s linear infinite;
+   
+   
+ }
+ @keyframes animate
+ {
+    0%
+    {
+      width: 0%;
+    }
+    70%
+    {
+      width: 100%;
+    }
+ }
+
+ .navbar-nav > li > a.active,  .navbar-nav > li > a:focus{
+   border-top: 0.1875rem solid var(--primary-orange);
+
+ }
+ .navbar-nav > li > a:hover {
+  border-top: 0.1875rem solid var(--primary-orange);
+ }
+ .form-control{
+   padding: 0;
+ }
+ .mb-3{
+  width: 43.75rem;
+  padding-left: 0px;
+  padding-bottom:  3.125rem;
+  padding-top:  3.125rem;
+ }
+ .cardyyy{
+   padding-top: 50px;
+    
+ }
+ .btn-b{
+   border-radius: 1px;
+   box-shadow: inset 0 0 0 0 #f9e506;
+   transition: ease-in-out 0.3s;
+    
+ }
+  .int{
+    font-style: oblique;
+    padding-left: 7px;
+    padding-bottom: 0;
+    font-weight: bold;
+  }
