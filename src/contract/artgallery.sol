@@ -138,6 +138,8 @@ contract  ArtGallery {
         );
 
         artworks[_index].owner = payable(msg.sender);
+
+        emit artBought(artworks[_index].owner, _index, artworks[_index].price, msg.sender);
          
     }
 
