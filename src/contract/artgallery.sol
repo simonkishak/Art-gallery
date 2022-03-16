@@ -15,7 +15,7 @@ interface IERC20Token {
 }
 
 contract  ArtGallery {
-
+    //Variable used as the index to store all artworks
     uint internal artworksLength = 0;
     address internal cUsdTokenAddress = 0x874069Fa1Eb16D44d622F2e0Ca25eeA172369bC1;
 
@@ -32,7 +32,7 @@ contract  ArtGallery {
 
     mapping (uint =>  Artwork) internal artworks;
 
-
+// this function is used to add an artwork
     function  addArtwork(
         string memory _image,
         string memory _description, 
@@ -54,7 +54,7 @@ contract  ArtGallery {
         );
         artworksLength++;
     }
-
+//Returns all the artworks by index
     function getArtwork(uint _index) public view returns (
         address payable,
         string memory, 
@@ -75,20 +75,20 @@ contract  ArtGallery {
              
         );
     }
-
+ //Function that is used to like the artwork
     function Like (uint _index)public{
         artworks[_index].likes ++;
     } 
-    
+     //Function that is used to dislike the artwork
     function Dislike(uint _index) public{
         artworks[_index].disLikes ++;
     }
-
+//function use to delete artwork
     function Delete (uint _index)public{
         require(artworks[_index].owner==msg.sender, "Error");
         delete(artworks[_index]);
     }
-
+//function is used to edit artwork
      function editArtwork(
         uint256 _index,
         string memory _image,
@@ -110,7 +110,7 @@ contract  ArtGallery {
         );
     }
 
-
+//function is use to buy artwork
     function buyArtwork(uint _index) public payable  {
         require(
           IERC20Token(cUsdTokenAddress).transferFrom(
@@ -124,7 +124,7 @@ contract  ArtGallery {
         artworks[_index].owner = payable(msg.sender);
          
     }
-    
+    //Function that returns the total number of artworks 
     function getartworksLength() public view returns (uint) {
         return (artworksLength);
     }
