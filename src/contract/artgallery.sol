@@ -78,7 +78,10 @@ contract  ArtGallery {
         uint, 
         uint,
         uint,
-        uint
+        uint,
+        bool,
+        bool,
+        bool
     ) {
         return (
             artworks[_index].owner,
@@ -87,8 +90,10 @@ contract  ArtGallery {
             artworks[_index].size,
             artworks[_index].price,
             artworks[_index].likes,
-            artworks[_index].disLikes
-             
+            artworks[_index].disLikes,
+            artworks[_index].hasLiked[msg.sender],
+            artworks[_index].hasDisliked[msg.sender],
+            artworks[_index].forSale   
         );
     }
 
@@ -111,7 +116,6 @@ contract  ArtGallery {
         delete(artworks[_index]);
     }
 
-
     //Function using which the owner can change the price of the art making it viable for reselling
      function editArtwork(
         uint256 _index,
@@ -119,7 +123,6 @@ contract  ArtGallery {
     ) public onlyOwner(_index){
         artworks[_index].price = _price;
     }
-
 
 
     //Function which a use can use to buy the art and be the owner of that art
