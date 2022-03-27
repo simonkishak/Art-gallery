@@ -20,8 +20,10 @@ import NewArtwork from './components/Newartwork';
 const ERC20_DECIMALS = 18;
 
 
-const contractAddress = "0x9F6C54C19F51c0aE08952d9235D30AEa3a8C01eB";
+const contractAddress = "0x7a54EA4E95C49C76Bae9Cd44ad7bdDEa4314e4ca";
 const cUSDContractAddress = "0x874069Fa1Eb16D44d622F2e0Ca25eeA172369bC1";
+
+
 
 
 
@@ -107,8 +109,9 @@ function App() {
     _url,
     _description,
     _size,
-    _price
+    price
   ) => {
+    const _price = new BigNumber(price).shiftedBy(ERC20_DECIMALS).toString();
     try {
       await contract.methods
         .addArtwork(_url, _description, _size, _price)
@@ -123,11 +126,9 @@ function App() {
   const buyArtwork = async (_index, _price) => {
     try {
       const cUSDContract = new kit.web3.eth.Contract(IERC, cUSDContractAddress);
-      const cost = new BigNumber(artworks[_index].price)
-        .shiftedBy(ERC20_DECIMALS)
-        .toString();
+     
       await cUSDContract.methods
-        .approve(contractAddress, cost)
+        .approve(contractAddress, artworks[_index].price)
         .send({ from: address });
       await contract.methods.buyArtwork(_index).send({ from: address });
       getArtwork();

@@ -15,8 +15,8 @@ const Artworks = (props) => {
 
                <div className="card-section">
                <h5 className="card-title">{artwork.description}</h5>
-               <h6 className="card-subtitle ">{artwork.price} cUSD</h6>
-                <h4 className="card-text"> {artwork.size} </h4>
+               <h6 className="card-subtitle ">price {artwork.price / 1000000000000000000} cUSD</h6>
+                <h4 className="card-text"> Size {artwork.size} </h4>
 
                 <div  class="btn-group btn-group-lg" role="group" aria-label="...">
                 <button

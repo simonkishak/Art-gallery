@@ -8,7 +8,7 @@ const NewArtwork = (props) => {
  const [url, setUrl] = useState('');
  const [description, setDescription] = useState('');
  const [size, setSize] = useState('');
- const [price, setPrice] = useState('');
+ const [price, setPrice] = useState(0);
  
  const submitHandler = (e) => {
   e.preventDefault();
